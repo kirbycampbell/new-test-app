@@ -1,6 +1,9 @@
 import React from "react";
 import _ from "lodash";
+import PropTypes from "prop-types";
+
 const Pagination = props => {
+  //Below is object destructuring that way never have to do this.props.itemsCount or similar
   const { itemsCount, pageSize, currentPage, onPageChange } = props;
   console.log(currentPage);
 
@@ -24,6 +27,14 @@ const Pagination = props => {
       </ul>
     </nav>
   );
+};
+
+// This makes sure that prop is the right type!!
+Pagination.propTypes = {
+  itemsCount: PropTypes.number.isRequired,
+  pageSize: PropTypes.number.isRequired,
+  currentPage: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired
 };
 
 export default Pagination;
